@@ -7,10 +7,6 @@ Random walk is important mathematical concept with applications in many scientif
 
 ![](imgs/rand_walk_1D.gif)
 
-## rand_walk_1D
-
-![](imgs/rand_walk_1D.gif)
-
 ## rand_walk_2D
 
 ![](imgs/rand_walk_2D.gif)
