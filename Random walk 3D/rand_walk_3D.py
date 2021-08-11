@@ -34,9 +34,16 @@ def stepChoice():
 pause = [.5] 
 def update_speed(val):
     pause[0] = 1.01-val
-        
+
+
+def handle_close(evt):
+    global run 
+    run = False
+
 # vizualizing steps
 def visualization(num_steps = 1000):
+    global run 
+    run = True
     # inicializing 3D plot
     fig = plt.figure("Random Walk")
     ax = fig.add_subplot(111, projection='3d')
@@ -45,7 +52,7 @@ def visualization(num_steps = 1000):
     axamp = plt.axes([0.25, .03, .50, 0.02])
     samp = Slider(axamp, 'Speed', 0.01, 1, valinit=pause[0])
 
-    for i  in range(num_steps):
+    while run:
 
         # calling stepChoice() to produce new step
         stepChoice()
@@ -58,6 +65,9 @@ def visualization(num_steps = 1000):
         ax.set_xlim (0,limit_axis)
         ax.set_ylim (0,limit_axis)
         ax.set_zlim (0,limit_axis)
+
+
+        fig.canvas.mpl_connect('close_event', handle_close)
 
         # change speed of animation
         try:
